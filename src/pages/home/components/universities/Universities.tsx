@@ -13,6 +13,14 @@ function Universities() {
     return (
         <section className="universities wavy-bg">
             <h2 className="heading slide-in-rest">universities on studentrealestate</h2>
+            <div className="input-wrapper slide-in-rest">
+                <input
+                    type="text"
+                    className="search"
+                    placeholder="search for university"
+                    onKeyUp={handleSearch}
+                />
+            </div>
             <div className="university-list slide-in-rest">
                 {schools
                     .filter((school) => school.name.toLocaleLowerCase().includes(search.toLowerCase()))
@@ -22,14 +30,6 @@ function Universities() {
                             {school.name}
                         </p>
                     ))}
-            </div>
-            <div className="input-wrapper slide-in-rest">
-                <input
-                    type="text"
-                    className="search"
-                    placeholder="search for university"
-                    onKeyUp={handleSearch}
-                />
             </div>
         </section>
     );
