@@ -16,7 +16,7 @@ import roundGreen from "assets/images/playful_shapes/round-green.png";
 import yellowBox from "assets/images/playful_shapes/yellow-box.png";
 import { api, socialBackends, sprinklesAmount } from "./globalVariables";
 import { randInt, randListItem } from "./random";
-import { RoommateDetails, RoommateErrorDetails, FriendDetails, FriendErrorDetails } from "./typeDefs";
+import { RoommateDetails, RoommateErrorDetails, FriendDetails, FriendErrorDetails, School } from "./typeDefs";
 import {
     friendDetailsContext,
     friendErrorDetailsContext,
@@ -370,6 +370,30 @@ export function useStateSchools() {
     const schools = useContext(schoolContext);
     const states = useMemo(() => Array.from(new Set(schools.map((school) => school.state))), [schools]);
     return { states, schools };
+}
+
+export function useSchools() {
+    const [schools, setSchools] = useState<School[]>([]);
+
+    // const schools = useFetchUnprotectedData(api.schools);
+    useEffect(() => {
+        import("assets/schools.json").then((stateSchools) => {
+            let schools: School[] = [];
+
+            Object.keys(stateSchools.default).forEach((state, i1) => {
+                stateSchools.default[state as keyof typeof stateSchools.default].forEach((name, i2) => {
+                    schools.push({
+                        id: `${i1 + i2}`,
+                        name,
+                        state,
+                        abbreviation: name.split(" ")[0].slice(0, 3),
+                    });
+                });
+            });
+            setSchools(schools);
+        });
+    }, []);
+    return schools;
 }
 
 export function useInfiniteScroll(route: string) {

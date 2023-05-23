@@ -94,3 +94,5 @@ export const options = {
 };
 
 export const optionalFields = ["pets"];
+
+export const DEMO = true;

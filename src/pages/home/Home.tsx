@@ -8,7 +8,6 @@ import Universities from "./components/universities/Universities";
 import { useSprinkles, useAnimateIn, useTopTracker } from "utilities/customHooks";
 import "./home.scss";
 import { userContext } from "utilities/contextDefinitions";
-import Axios from "axiosInstance";
 
 export async function loader() {
     return null;

@@ -6,7 +6,7 @@ import { parseFormData } from "./helperFunctions";
 import { useSignInUser, useSignOutUser } from "./authentication";
 import Axios from "axiosInstance";
 import { handle401Unauthorized } from "./errorHandlers";
-import { optionalFields } from "./globalVariables";
+import { DEMO, optionalFields } from "./globalVariables";
 
 export function useHandleFormSubmit(
     func: any,
@@ -20,6 +20,10 @@ export function useHandleFormSubmit(
     const signout = useSignOutUser();
     return function (e: FormEvent) {
         e.preventDefault();
+        if (DEMO) {
+            AlertMessage("This is a still a Demo. <br>Thanks for checking this out.");
+            return;
+        }
         const form = e.target as HTMLFormElement;
         const formData = new FormData(form);
 

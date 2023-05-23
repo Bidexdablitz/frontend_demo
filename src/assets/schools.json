@@ -1,0 +1,153 @@
+{
+    "abuja": ["University of Abuja"],
+    "abia": [
+        "Abia State University uturu",
+        "Abia State College of Education",
+        "Michael Okpara University of Agriculture Umudike"
+    ],
+    "adamawa": [
+        "Adamawa State University",
+        "Adama University of Technology (Yola)",
+        "College of Agriculture (Adamawa)",
+        "Federal Polytechnic Adamawa"
+    ],
+    "akwa ibom": [
+        "Niger Delta University",
+        "Federal University Otuoke",
+        "Federal Polytechnic Ekeowe",
+        "University of Uyo"
+    ],
+    "anambra": [
+        "Nnamdi Azikiwe University Akwa",
+        "Federal College of Education Umunze",
+        "Federal Polytechnic Oko"
+    ],
+    "bauchi": [
+        "Abubakar Tafawa balewa University",
+        "Federal Polytechnic Bauchi",
+        "College of Education Azare",
+        "Bauchi state University",
+        "Federal University of Health Science, Azare"
+    ],
+    "bayelsa": ["Niger delta University", "Federal University Otuoke", "Federal Polytechnic Ekeowe"],
+    "benue": ["University of Agriculture Markudi", "Benue State University"],
+    "borno": ["University of Maiduguri", "Borno State University"],
+    "cross river": ["Cross-River University of Technology", "University of Calabar"],
+    "delta": [
+        "Delta State University",
+        "Delta State Polytechnic Ogwashi-uku",
+        "Delta State Polytechnic Ozoro",
+        "Delta State Polytechnic Otefe",
+        "College of Education Agbor",
+        "College of Education Warri",
+        "Petroleum Training Institute"
+    ],
+    "ebonyi": [
+        "Ebonyi State University abkaliki(EBSU)",
+        "Federal University(FUNAI)",
+        "Akanu Ibiam Federal Polytechnic",
+        "Federal College of Agriculture Ishiagu",
+        "Alex Ekwueme Federal University Ndufu-Alike"
+    ],
+    "edo": ["University of Benin"],
+    "ekiti": [
+        "Ekiti state college of science and technology",
+        "Federal University Oye-Ekiti",
+        "Federal Polytechnic Ado-Ekiti",
+        "Ekiti State University",
+        "Bamidele Olumilua University"
+    ],
+    "enugu": [
+        "Enugu State College of Education",
+        "Enugu State University of Science and tech",
+        "University Of Nigeria Nsukka"
+    ],
+    "gombe": ["Gombe state University", "Federal University Kashere (FUK)"],
+    "imo": ["Federal Polytechnic Nekede", "Federal University of technology owerri", "Imo State University"],
+    "jigawa": ["Federal University Duste"],
+    "kaduna": [
+        "Ahmadu Bello University",
+        "Kaduna Polytechnic",
+        "Kaduna State University",
+        "Federal College of Education",
+        "Air Force Institute of Technology"
+    ],
+    "kano": [
+        "Kano State College of Education",
+        "Kano State Polytechnic",
+        "Kano State University of Science and Tech",
+        "Federal College of Agric (Kano)"
+    ],
+    "kastina": ["Federal University Dustin-Ma"],
+    "kebbi": ["Kebbi state Polytechnic", "Federal University, Birnin Kebbi"],
+    "kogi": ["Federal University Lokoja", "Kogi state Polytechnic"],
+    "kwara": [
+        "University of Ilorin",
+        "Kwara State University",
+        "Kwara State Polytechnic",
+        "Federal polytechnic Offa",
+        "College of Education Ilorin",
+        "Al-Hikmah University"
+    ],
+    "lagos": [
+        "University of lagos",
+        "Lagos State College of Health",
+        "Lagos State Polythenic",
+        "Federal college of education",
+        "Lagos State University (LASU)",
+        "Yaba College of Technology",
+        "Pan Atlantic University"
+    ],
+    "nasarawa": ["Nasarawa State University", "Federal University Nasarawa", "Federal Polytechnic Nasarawa"],
+    "niger": ["Federal University of Technology Minna", "Ibrahim Badamasi Babangida University"],
+    "ogun": [
+        "Federal University of Agriculture",
+        "Olabisi Onabanjo University",
+        "Moshood Abiola Polytechnic",
+        "Tal Solarin University of Education",
+        "Federal Polytechnic Ilaro",
+        "National Open University (Ogun)",
+        "Bells University of Technology",
+        "Federal Polytechnic, Ilaro"
+    ],
+    "ondo": [
+        "Adekunle Ajasin University",
+        "Federal University of technology Akure",
+        "Rufus giwa polytechnic Owo",
+        "University of Medical Science Ondo",
+        "Ondo State University of Science",
+        "Adeyemi College of Education"
+    ],
+    "osun": [
+        "Federal Polytechnic osun",
+        "Osun state College of Health Tech",
+        "JABU",
+        "Federal Polytechnic Ede",
+        "Osun state University",
+        "Osun state Polytechnic Iree",
+        "Obafemi Awolowo University"
+    ],
+    "oyo": [
+        "University of Ibadan",
+        "Polythenic Ibadan",
+        "Ladoke Akintola University of Technology",
+        "Emmanuel Alayande College of Education",
+        "Oyo state college of Agric",
+        "Oke-ogun Polytechnic"
+    ],
+    "plateau": ["University of Jos", "Plateau State University"],
+    "rivers": [
+        "Rivers State University",
+        "University of Port Harcourt",
+        "Ambrose Ali University",
+        "Auchi federal Polytechnic",
+        "College of Education Ekiadlor",
+        "College of Agriculture",
+        "College of Education igueben",
+        "Kenule Beeson Saro-Wiwa Polytechnic"
+    ],
+    "sokoto": ["Sokoto state University", "Usmanu Danfodiyo University"],
+    "taraba": ["Federal University Taraba"],
+    "yobe": [],
+    "zamfara": ["Federal University Gusau (FUGUS)"]
+}

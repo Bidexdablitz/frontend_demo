@@ -76,7 +76,7 @@
 
         button {
             @include button-fill;
-            @include slide-in;
+            @include slide-in("right");
             width: clamp(150px, 80%, 250px);
             margin: 0 auto 2rem;
         }

@@ -1,37 +1,27 @@
-import Spinner from "components/spinner/Spinner";
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useState } from "react";
 import "./universities.scss";
+import { useStateSchools } from "utilities/customHooks";
 
 function Universities() {
     const [search, setSearch] = useState("");
-    const [universities, setUniversities] = useState<string[]>([]);
-    const [fetchingUni, startUniFetchTransition] = useTransition();
+    const schools = useStateSchools().schools;
 
     function handleSearch(e: any) {
         setSearch(e.target.value);
     }
 
-    useEffect(() => {
-        startUniFetchTransition(() => {
-            setUniversities(getUniversities());
-        });
-    }, []);
-
     return (
         <section className="universities wavy-bg">
             <h2 className="heading slide-in-rest">universities on studentrealestate</h2>
             <div className="university-list slide-in-rest">
-                {fetchingUni ? (
-                    <Spinner />
-                ) : (
-                    universities
-                        .filter((university) => university.includes(search.toLowerCase()))
-                        .map((university, index) => (
-                            <p key={index} className="university">
-                                {university}
-                            </p>
-                        ))
-                )}
+                {schools
+                    .filter((school) => school.name.toLocaleLowerCase().includes(search.toLowerCase()))
+                    .slice(0, 10)
+                    .map((school, index) => (
+                        <p key={index} className="university">
+                            {school.name}
+                        </p>
+                    ))}
             </div>
             <div className="input-wrapper slide-in-rest">
                 <input
@@ -43,17 +33,6 @@ function Universities() {
             </div>
         </section>
     );
-}
-
-function getUniversities() {
-    return [
-        "university of lagos",
-        "university of ekiti",
-        "university of jos",
-        "university of nowhere land",
-        "university of ripple effect",
-        "university of yam",
-    ];
 }
 
 export default Universities;

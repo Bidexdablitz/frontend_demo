@@ -1,14 +1,17 @@
 import * as React from "react";
 import "./message-us.scss";
+import { useHandleFormSubmit } from "utilities/handleFormSubmit";
 
 function MessageUs() {
+    const handleFormSubmit = useHandleFormSubmit(() => {});
+
     return (
         <section className="message-us">
             <h2 className="heading slide-in-rest">shoot us a message if you need any help</h2>
             <p className="sub-heading slide-in-rest">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <form action="" method="post">
+            <form action="" method="post" onSubmit={handleFormSubmit}>
                 <section className="input-section">
                     <div className="input-container">
                         <label className="slide-in-rest">

@@ -1,21 +1,21 @@
-import { useEffect } from "react";
+import { lazy, useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "router";
-import { api, themes } from "utilities/globalVariables";
+import { themes } from "utilities/globalVariables";
 import { themeContext, userContext, schoolContext } from "utilities/contextDefinitions";
-import { useFetchUnprotectedData, useStateLocal, useUrlMessage } from "utilities/customHooks";
+import { useSchools, useStateLocal } from "utilities/customHooks";
 import "App.scss";
 import "components/page_loading/page-loading.scss";
 import Alert from "components/alert/Alert";
+import { School } from "utilities/typeDefs";
 
 function App() {
     const [theme, setTheme] = useStateLocal(
         "theme",
         window.matchMedia("(prefers-color-scheme: dark)").matches ? themes.dark : themes.light
     ); // set the website theme
-
     const [user, setUser] = useStateLocal("user");
-    const schools = useFetchUnprotectedData(api.schools);
+    const schools = useSchools();
     // scroll to top on mount
     useEffect(() => {
         setTimeout(() => window.scrollTo(0, 0), 0);
