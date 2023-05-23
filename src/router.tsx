@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import dynamicPage from "utilities/dynamicPage";
 import Layout from "components/layout/Layout";
 import googleWrapper from "utilities/googleWrapper";
@@ -76,7 +76,7 @@ export const routes = {
     },
 };
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: routes.index,
         element: <Layout />,
