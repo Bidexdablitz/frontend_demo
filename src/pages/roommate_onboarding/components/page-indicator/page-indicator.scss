@@ -1,0 +1,89 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+.slide-in-wrapper {
+    @include slide-in("right", 1);
+}
+.page-indicator {
+    @include theme {
+        background-color: themed($page-indicator);
+    }
+    @include slide-in("right");
+    width: 1px;
+    height: 10rem;
+    position: relative;
+    margin: 1rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.one {
+        .number:nth-child(1) {
+            @include theme {
+                color: themed($on-primary-color);
+                background-color: themed($primary-color);
+            }
+        }
+    }
+
+    &.two {
+        @include theme {
+            background: linear-gradient(180deg, themed($primary-color) 50%, themed($page-indicator) 50%);
+        }
+        .number:nth-child(-n + 2) {
+            @include theme {
+                color: themed($on-primary-color);
+                background-color: themed($primary-color);
+            }
+        }
+    }
+
+    &.three {
+        @include theme {
+            background: themed($primary-color);
+        }
+        .number:nth-child(-n + 3) {
+            @include theme {
+                color: themed($on-primary-color);
+                background-color: themed($primary-color);
+            }
+        }
+    }
+    .number {
+        @include button-fill;
+        @include theme {
+            color: themed($page-indicator);
+            background-color: themed(background-color);
+            border: 1px solid themed($page-indicator);
+        }
+        transform: translateX(-1em);
+        width: 2em;
+        min-width: 2em;
+        height: 2em;
+        min-height: 2em;
+        aspect-ratio: 1/1;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .page-indicator {
+        @include slide-in;
+        flex-direction: row;
+        height: 1px;
+        width: 10rem;
+        margin-block: 2rem;
+
+        &.two {
+            @include theme {
+                background: linear-gradient(90deg, themed($primary-color) 50%, themed($page-indicator) 50%);
+            }
+        }
+        .number {
+            transform: translateY(-1em);
+        }
+    }
+}

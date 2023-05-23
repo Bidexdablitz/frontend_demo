@@ -1,0 +1,28 @@
+@import "assets/styles/mixins";
+@import "assets/styles/variable";
+
+.what-we-do {
+    padding: 4rem $screen-content-padding 2rem;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+    .write-up {
+        @include slide-in;
+        padding: 2rem 4rem 0;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .what-we-do {
+        .write-up {
+            padding: 2rem 0 0;
+        }
+    }
+}

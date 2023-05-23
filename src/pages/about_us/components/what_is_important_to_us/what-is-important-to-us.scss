@@ -1,0 +1,61 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.what-is-important-to-us {
+    margin-block: 4rem;
+    padding: 0 $screen-content-padding;
+    display: flex;
+    column-gap: 5rem;
+    row-gap: 3rem;
+    flex-wrap: wrap;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+        text-align: left;
+        width: clamp(100px, 20vw, 300px);
+    }
+    article {
+        margin-inline: auto;
+        max-width: 500px;
+    }
+    .small-heading {
+        @include small-heading;
+        @include slide-in;
+    }
+    .write-up {
+        @include slide-in;
+        margin-block: 2rem;
+    }
+    .button-wrapper {
+        @include slide-in;
+        display: flex;
+        height: 40px;
+        gap: 1rem;
+    }
+    .back,
+    .front {
+        @include button-fill;
+        display: grid;
+        place-items: center;
+        padding: 0;
+    }
+    .back {
+        @include theme {
+            background-color: themed($white);
+        }
+        width: 60px;
+    }
+
+    .front {
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .what-is-important-to-us {
+        article {
+            margin-inline: 0;
+        }
+    }
+}

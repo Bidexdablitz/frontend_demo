@@ -1,0 +1,59 @@
+@import "assets/styles/mixins";
+@import "assets/styles/themes";
+
+.faq {
+    margin-block: 4rem;
+    padding-inline: $screen-content-padding;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+        margin-bottom: 2rem;
+    }
+    .question-wrapper {
+        @include slide-in;
+        margin-block: 1rem;
+
+        .question {
+            position: relative;
+            padding-right: 2rem;
+            cursor: pointer;
+
+            &::after {
+                content: "+";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                display: grid;
+                place-items: center;
+                width: 2rem;
+                font-size: 1.6rem;
+            }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        .answer {
+            line-height: 0;
+            margin: 0.5rem;
+            opacity: 0;
+            transition: line-height $default-transition-duration ease-in;
+        }
+        &.open {
+            .answer {
+                @include theme {
+                    color: themed($on-background-color-2);
+                    background-color: themed($background-color-2);
+                }
+                margin-top: 1rem;
+                padding: 0.5rem;
+                border-radius: 5px;
+                opacity: 1;
+                line-height: 1;
+                transition: line-height $default-transition-duration ease-in,
+                    opacity 100ms $default-transition-duration ease-in;
+            }
+        }
+    }
+}

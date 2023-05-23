@@ -1,0 +1,235 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.upload-image {
+    @include headerless-margin;
+    padding-inline: $screen-content-padding;
+    margin-inline: auto;
+    padding-block: 4rem;
+    max-width: 900px;
+    min-height: 100vh;
+    display: grid;
+    gap: 4rem;
+    align-content: center;
+
+    .heading {
+        @include heading;
+        @include theme {
+            color: themed($primary-color);
+        }
+        @include slide-in;
+    }
+    .sub-heading {
+        @include slide-in;
+        @include sub-heading;
+    }
+    .drop-zone {
+        @include slide-in("right");
+        display: grid;
+        border: 0.5px dashed;
+        border-radius: 10px;
+        width: 100%;
+        margin: auto;
+        min-height: 18rem;
+        padding: 1rem;
+        cursor: pointer;
+
+        > * {
+            pointer-events: none;
+        }
+
+        .thumb {
+            display: none;
+            position: relative;
+            border-radius: inherit;
+            width: 100%;
+            max-width: 400px;
+            margin-inline: auto;
+            background-image: url(../../assets/images/close-up-shot-touched-pleased-happy-dark-skinned-girl-with-afro-hairstyle-glasses-striped-blouse-holding-hands-chest-smiling-broadly-being-pleased-receiving-compliments.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+
+            &::before {
+                @include theme {
+                    background-color: themed($background-color);
+                }
+                content: attr(data-image-name);
+                position: absolute;
+                inset: 0;
+                top: initial;
+                padding: 1rem;
+                text-align: center;
+                text-overflow: ellipsis;
+            }
+        }
+        &:hover {
+            @include theme {
+                background-color: themed($background-color-2);
+            }
+        }
+    }
+    .drop-zone.dropped {
+        @include theme {
+            background-color: themed($background-color-2);
+        }
+        border-style: dashed;
+
+        .placeholder {
+            display: none;
+        }
+        .thumb {
+            display: block;
+        }
+    }
+    .drop-zone.drag-over {
+        @include theme {
+            background-color: themed($background-color-2);
+        }
+        border-style: solid;
+    }
+
+    .placeholder {
+        margin: auto;
+        gap: 0.5rem;
+        .img {
+            min-height: 10rem;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        p {
+            width: fit-content;
+            margin-inline: auto;
+            text-align: center;
+        }
+        span {
+            @include theme {
+                color: themed($primary-color);
+            }
+            text-transform: capitalize;
+            font-family: $font-family-bold;
+            font-weight: $font-weight-bold;
+        }
+    }
+    .placeholder.desktop {
+        display: grid;
+        .img {
+            background-image: url(../../assets/images/icons/upload-img-desktop.svg);
+        }
+    }
+    .button-wrapper {
+        @include slide-in;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: right;
+    }
+    button {
+        @include button-fill;
+        width: clamp(100px, 30vw, 200px);
+        min-width: fit-content;
+    }
+    button.continue {
+        @include theme {
+            color: themed($on-secondary-color);
+            background-color: themed($secondary-color);
+        }
+    }
+    .placeholder.mobile {
+        display: none;
+    }
+    [type="file"] {
+        display: none;
+    }
+    .uploading-control {
+        @include slide-in("left");
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem;
+        border: 1.5px solid #bdbdbd;
+        border-radius: 7px;
+
+        p {
+            overflow: hidden;
+            max-width: 60%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .current-percentage {
+            opacity: 0.75;
+            margin-top: 0.3rem;
+        }
+        .cancel {
+            @include button-fill;
+            @include theme {
+                background-color: themed($upload-cancel-button);
+            }
+            padding: 0;
+            $thickness: 3px;
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            right: 1rem;
+            display: grid;
+
+            &::before,
+            &::after {
+                @include theme {
+                    background-color: themed($upload-cancel-button-x);
+                }
+                content: "";
+                border-radius: 2px;
+                height: $thickness;
+                width: 60%;
+                background-color: #bdbdbd;
+                margin-inline: auto;
+            }
+            &::before {
+                margin-top: auto;
+                transform: translateY(calc(#{$thickness} / 2)) rotate(45deg);
+            }
+            &::after {
+                margin-bottom: auto;
+                transform: translateY(calc(-#{$thickness} / 2)) rotate(-45deg);
+            }
+        }
+        .progress-bar {
+            @include theme {
+                background-color: themed($background-color-2);
+            }
+            position: relative;
+            margin-top: 1rem;
+            border-radius: 3px;
+            height: 3px;
+            overflow: hidden;
+
+            .loader {
+                @include theme {
+                    background-color: themed($primary-color);
+                }
+                border-radius: 3px;
+                position: absolute;
+                inset: 0;
+                will-change: transform;
+                transition: transform $default-transition-duration ease-in-out;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .upload-image {
+        .placeholder.mobile {
+            display: grid;
+            .img {
+                background-image: url(../../assets/images/icons/upload-img-mobile.svg);
+            }
+        }
+        .placeholder.desktop {
+            display: none;
+        }
+    }
+}

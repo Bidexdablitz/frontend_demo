@@ -1,0 +1,76 @@
+@import "assets/styles/mixins";
+
+.roommate-entry,
+.friend-entry {
+    @include theme {
+        color: themed($on-background-color);
+    }
+    display: grid;
+    row-gap: 1rem;
+    grid-template-rows: 150px 1fr;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    img,
+    .img-wrapper {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .text-wrapper {
+        display: grid;
+        align-content: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+
+        > * {
+            text-transform: capitalize;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+
+            &:first-child {
+                @include theme {
+                    color: themed($primary-color);
+                }
+                font-family: $font-family-bold;
+                font-weight: $font-weight-bold;
+                font-size: 1.5em;
+            }
+        }
+        .bold {
+            font-family: $font-family-bold;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .roommate-entry {
+        display: block;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1/1.16;
+        // max-height: 400px;
+
+        .text-wrapper {
+            @include theme {
+                color: #fff;
+                background: #000000a6;
+            }
+            padding: 0.5rem;
+            z-index: 3;
+            position: absolute;
+            inset: 0;
+            top: initial;
+        }
+    }
+}

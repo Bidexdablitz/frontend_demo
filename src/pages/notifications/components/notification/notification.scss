@@ -1,0 +1,75 @@
+@import "assets/styles/mixins";
+
+.single-notification {
+    @include theme {
+        color: themed($on-background-color);
+    }
+    text-decoration: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 0.5rem $screen-content-padding;
+
+    .notification-icon,
+    .ellipse {
+        @include theme {
+            background-image: themed($notification-icon);
+            background-color: themed($notification-icon-bg);
+        }
+
+        width: 3rem;
+        min-width: clamp(2rem, 4vw, 3rem);
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+
+    &:hover,
+    &:active {
+        opacity: 0.8;
+    }
+
+    .title-wrapper {
+        display: grid;
+        gap: 0.4rem;
+    }
+    .title,
+    .display-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .title {
+        font-size: 1.1em;
+        font-family: $font-family-medium;
+        font-weight: $font-weight-medium;
+        text-transform: capitalize;
+    }
+    .display-text {
+        font-size: 0.9rem;
+    }
+    .ellipse {
+        @include theme {
+            background-image: themed($notification-ellipse-icon);
+        }
+        margin-left: auto;
+
+        &:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+}
+.single-notification:nth-child(even) {
+    @include theme {
+        background-color: themed($notification-variant-bg);
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .single-notification {
+        gap: 1rem;
+    }
+}

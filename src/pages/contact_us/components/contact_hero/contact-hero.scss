@@ -1,0 +1,48 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.contact-hero {
+    position: relative;
+    background-image: $default-background-image-gradient;
+    padding: 8rem $screen-content-padding;
+    color: #fff;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("../../../../assets/images/woman-using-phone.jpg");
+        background-size: cover;
+        background-position: center;
+        z-index: $hero-image-z-index;
+    }
+
+    .heading {
+        @include slide-in();
+        font-family: $font-family-bold;
+        font-weight: $font-weight-bold;
+        font-size: clamp(29px, 6vw, 64px);
+        text-transform: capitalize;
+        text-align: center;
+        margin: auto;
+        line-height: 110%;
+    }
+
+    .sub-heading {
+        @include slide-in($delay: 1);
+        font-style: italic;
+        margin: 1rem auto 1.5rem;
+        font-size: clamp(1rem, 2.5vw, 24px);
+        text-align: center;
+    }
+}
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .contact-hero {
+        .heading {
+            text-align: start;
+        }
+        .sub-heading {
+            text-align: start;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@import "assets/styles/variable";
+@import "assets/styles/themes";
+@import "assets/styles/buttons";
+@import "assets/styles/mixins";
+
+.message-us {
+    padding-inline: $screen-content-padding;
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+    .input-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 2rem clamp(1rem, 5vw, 9rem);
+        row-gap: 1.5rem;
+        column-gap: clamp(0.5rem, 3vw, 3rem);
+
+        .input-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+        label {
+            @include slide-in;
+            font-family: $font-family-medium;
+            font-weight: $font-weight-medium;
+            text-transform: capitalize;
+            display: grid;
+        }
+        .input-wrapper {
+            @include generic-input-wrapper;
+            margin-top: 1rem;
+        }
+        .name {
+            @include generic-input(url(../../assets/images/icons/person-icon.png));
+        }
+        .email {
+            @include generic-input(url(../../assets/images/icons/envelope-fill-icon.png));
+        }
+        .phone {
+            @include generic-input(url(../../assets/images/icons/phone-icon.png));
+        }
+        label[for="message"] {
+            grid-template-areas: "one";
+            min-height: 200px;
+
+            .input-wrapper {
+                margin-top: 2rem;
+                height: Max(50px, calc(100% - 2rem));
+            }
+
+            > * {
+                grid-area: one;
+            }
+        }
+        .message {
+            @include generic-input;
+            padding: 1rem;
+        }
+    }
+    form {
+        @include theme {
+            color: themed($contact-form-text-color);
+            background-color: themed($contact-form-background);
+            border: 1px solid themed($secondary-color);
+        }
+        display: grid;
+        margin: 2rem auto;
+        border-radius: 10px;
+        max-width: 900px;
+        position: relative;
+
+        button {
+            @include button-fill;
+            @include slide-in;
+            width: clamp(150px, 80%, 250px);
+            margin: 0 auto 2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .message-us {
+        form {
+            overflow-x: auto;
+            grid-template-columns: 1fr;
+        }
+    }
+}

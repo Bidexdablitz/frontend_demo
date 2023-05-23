@@ -1,0 +1,74 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.error-page-404 {
+    @include headerless-margin;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-content: center;
+    padding-inline: $screen-content-padding;
+    min-height: 100vh;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url(../../assets/images/404-image.svg);
+        background-position: calc(100% - #{$screen-content-padding}) center;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+
+    .info {
+        display: grid;
+        gap: 2rem;
+
+        h1 {
+            @include heading;
+            text-align: start;
+            text-transform: uppercase;
+        }
+        p {
+            line-height: 120%;
+            width: Min(100%, 300px);
+        }
+        .back {
+            @include button-fill;
+            width: fit-content;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .error-page-404 {
+        grid-template-columns: 1fr;
+
+        &::after {
+            position: static;
+            min-height: 200px;
+            background-position: center;
+            background-size: Min(100%, 300px);
+        }
+        .info {
+            h1 {
+                text-align: center;
+            }
+            place-items: center;
+            text-align: center;
+        }
+    }
+}
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .error-page-404 {
+        .info {
+            h1 {
+                text-align: start;
+            }
+            place-items: start;
+            text-align: start;
+        }
+    }
+}

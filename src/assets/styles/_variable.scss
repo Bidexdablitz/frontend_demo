@@ -1,0 +1,60 @@
+@import "./themes";
+
+// default values
+$default-font-size: 16px;
+$default-box-shadow: #000 0 0 10px -7px;
+$default-background-image-gradient: linear-gradient(
+    281.97deg,
+    rgba(0, 160, 227, 0.7) 0%,
+    rgba(254, 82, 0, 0.7) 100%
+);
+$default-transition-duration: 200ms;
+
+$screen-content-padding: clamp(1rem, 6vw, 4rem);
+$button-radius: 12px;
+$header-height-mobile: 45px;
+$header-height-desktop: 65px;
+
+// break points
+$extra-small-breakpoint: 400px;
+$mobile-breakpoint: 600px;
+$highest-breakpoint: 1400px;
+
+// z-index
+$header-z-index: 20;
+$page-loading-z-index: $header-z-index - 1;
+$wavy-lines-z-index: -3;
+$hero-image-z-index: -2;
+$shape-sprinkles-z-index: -1;
+$hamburger-menu-z-index: $header-z-index + 1;
+
+// font
+$font-family-light: "UbuntuLight", sans-serif;
+$font-family-regular: "UbuntuRegular", sans-serif;
+$font-family-medium: "UbuntuMedium", sans-serif;
+$font-family-bold: "UbuntuBold", sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+@font-face {
+    font-family: "UbuntuLight";
+    src: local("UbuntuLight"), url("../fonts/Ubuntu/Ubuntu-Light.ttf") format("truetype");
+    font-weight: $font-weight-light;
+}
+@font-face {
+    font-family: "UbuntuRegular";
+    src: local("UbuntuRegular"), url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+    font-weight: $font-weight-regular;
+}
+@font-face {
+    font-family: "UbuntuMedium";
+    src: local("UbuntuMedium"), url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype");
+    font-weight: $font-weight-medium;
+}
+@font-face {
+    font-family: "UbuntuBold";
+    src: local("UbuntuBold"), url("../fonts/Ubuntu/Ubuntu-Bold.ttf ") format("truetype");
+    font-weight: $font-weight-bold;
+}

@@ -1,0 +1,277 @@
+@import "./variable";
+
+@mixin slide-in($direction: bottom, $delay: 0, $distance: 3rem) {
+    transition: transform 300ms cubic-bezier(0.42, 0, 0.41, 1.12), opacity $default-transition-duration ease;
+    transition-delay: 300ms * $delay;
+
+    &.slide-in-rest {
+        @if $direction == bottom {
+            transform: translateY($distance);
+        } @else if $direction == right {
+            transform: translateX($distance);
+        } @else if $direction == left {
+            transform: translateX(-$distance);
+        }
+        opacity: 0;
+    }
+}
+@mixin heading {
+    font-family: $font-family-bold;
+    font-weight: $font-weight-bold;
+    font-size: clamp(1.5rem, 5vw, 45px);
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 110%;
+    @include slide-in;
+}
+
+@mixin sub-heading {
+    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 20px);
+    @include slide-in;
+}
+
+@mixin small-heading {
+    font-family: $font-family-medium;
+    font-weight: $font-weight-medium;
+    text-transform: capitalize;
+    font-size: clamp(1.3rem, 4vw, 38px);
+    line-height: 110%;
+    text-align: start;
+    @include slide-in;
+}
+
+@mixin generic-input-wrapper {
+    height: fit-content;
+    border-radius: 10px;
+    @include theme {
+        background-color: themed($contact-form-input-background);
+    }
+
+    &:focus-within {
+        background-color: transparent;
+    }
+}
+@mixin generic-input($icon: "") {
+    @include theme {
+        color: themed($on-background-color);
+    }
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-width: 0;
+    padding: 1rem;
+    position: relative;
+    background-image: $icon;
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: 1rem center;
+    padding-left: 1.5rem + 1.5rem;
+
+    &:focus {
+        @include theme {
+            background-color: transparent;
+            outline: 1px solid themed($secondary-color);
+        }
+    }
+    &::placeholder {
+        @include theme {
+            color: themed($input-placeholder-color);
+        }
+        opacity: 0.8;
+        text-transform: capitalize;
+    }
+}
+
+@mixin swiper-button {
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    @include theme {
+        background-color: themed($primary-color);
+    }
+
+    &:after {
+        font-size: 1.2rem;
+        color: #fff;
+    }
+}
+
+@mixin headerless-margin {
+    & {
+        margin-top: -65px;
+    }
+    @media only screen and (max-width: $mobile-breakpoint) {
+        & {
+            margin-top: -45px;
+        }
+    }
+}
+
+@mixin styledInput {
+    .input-wrapper {
+        @include slide-in;
+        position: relative;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        background-position: calc(100% - 1rem) center;
+
+        &.error,
+        &[data-error-message] {
+            label {
+                @include theme {
+                    color: themed($error);
+                }
+            }
+            input,
+            select,
+            textarea {
+                @include theme {
+                    border: 1px solid themed($error);
+                }
+            }
+            input:focus,
+            select:focus,
+            textarea:focus {
+                @include theme {
+                    outline: none;
+                }
+            }
+
+            &:after {
+                @include theme {
+                    color: themed($error);
+                }
+                content: attr(data-error-message);
+                position: absolute;
+                display: block;
+                font-size: 0.65rem;
+                margin-top: 0.1rem;
+            }
+        }
+        &.email {
+            background-image: url(../images/signin_icons/email-icon.svg);
+        }
+        &.name {
+            background-image: url(../images/signin_icons/person-icon.svg);
+        }
+        &.username {
+            background-image: url(../images/signin_icons/person-icon.svg);
+        }
+        &.phone {
+            background-image: url(../images/signin_icons/phone-icon.svg);
+            background-size: 0.7rem;
+            &::before {
+                @include theme {
+                    background-color: themed($background-color-2);
+                    border-right: 0.5px solid themed($input-border);
+                }
+                content: "+234";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                border-radius: 10px;
+                padding-inline: 1rem;
+                display: grid;
+                place-items: center;
+            }
+            input {
+                padding-left: 5rem;
+            }
+        }
+        &.password {
+            background-image: url(../images/signin_icons/eye-icon.svg);
+        }
+
+        label {
+            @include theme {
+                color: themed($on-background-color);
+                background-color: themed($background-color);
+            }
+            position: absolute;
+            top: -8px;
+            left: 1.5rem;
+            font-size: 0.8rem;
+            padding-inline: 0.5rem;
+            text-transform: capitalize;
+            z-index: 1;
+            border-radius: 1rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        input,
+        select,
+        textarea {
+            @include generic-input;
+            @include theme {
+                border: 0.5px solid themed($input-border);
+            }
+            padding: 1rem 3rem;
+            appearance: none;
+        }
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            display: none;
+            -webkit-appearance: none;
+        }
+        select {
+            cursor: pointer;
+            text-transform: capitalize;
+            option {
+                @include theme {
+                    color: themed($on-background-color);
+                    background-color: themed($background-color);
+                }
+                text-transform: capitalize;
+            }
+        }
+    }
+    .input-wrapper.select {
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 3rem;
+            right: 0;
+            background: url(../images/icons/select-arrow-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+@mixin generic-social-icon {
+    cursor: pointer;
+    &:hover {
+        filter: brightness(120%);
+    }
+    &:active {
+        filter: brightness(90%);
+    }
+}
+
+@mixin loading-background {
+    @include theme {
+        background-image: linear-gradient(
+            100deg,
+            transparent 40%,
+            themed($img-loading-gradient),
+            transparent 60%
+        );
+    }
+    background-position-x: 100%;
+    background-size: 300%;
+    animation: img-loading 1s ease-in-out infinite;
+
+    @keyframes img-loading {
+        from {
+            background-position-x: 100%;
+        }
+        to {
+            background-position-x: 0%;
+        }
+    }
+}

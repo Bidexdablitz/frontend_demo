@@ -1,0 +1,84 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.dashboard-profile {
+    padding-block: 2rem;
+
+    form {
+        @include styledInput;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+
+        label[for="profile-image"] {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: auto;
+            grid-column: span 2;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            input[type="file"] {
+                display: none;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            column-gap: 2rem;
+            flex-wrap: wrap;
+            grid-column: span 2;
+
+            .edit,
+            .save {
+                padding-block: 0.5rem;
+            }
+            .edit {
+                @include button-fill;
+            }
+            .save {
+                @include button-fill($secondary-color);
+            }
+        }
+    }
+    .copyright {
+        margin-top: 1rem;
+    }
+
+    form.editing {
+        label[for="profile-image"] {
+            position: relative;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url(../../../../assets/images/icons/add-image-icon.svg);
+                background-repeat: no-repeat;
+                background-size: 4rem;
+                background-position: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .dashboard-profile {
+        form {
+            grid-template-columns: 1fr;
+            label[for="profile-image"] {
+                grid-column: span 1;
+            }
+            .buttons {
+                grid-column: span 1;
+            }
+        }
+    }
+}

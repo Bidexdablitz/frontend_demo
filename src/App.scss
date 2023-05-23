@@ -1,0 +1,111 @@
+@import "assets/styles/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    font-family: $font-family-regular;
+    font-size: $default-font-size;
+    font-weight: $font-weight-regular;
+}
+:root:has(.dark-theme) {
+    background-color: $dark-background-color;
+}
+:root:has(.light-theme) {
+    background-color: $light-background-color;
+}
+
+.App {
+    @include theme(true) {
+        color: themed($on-background-color);
+        background-color: themed($background-color);
+    }
+    margin: auto;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    position: relative;
+    max-width: $highest-breakpoint;
+    inset: 0;
+    isolation: isolate;
+    overflow: hidden;
+    padding-top: 65px;
+    min-height: 100vh;
+}
+.App > * > .top-loading-strip {
+    display: none;
+}
+.App .loading > .top-loading-strip {
+    display: block;
+}
+
+.shape-sprinkles {
+    position: absolute;
+    z-index: $shape-sprinkles-z-index;
+    width: clamp(0.8rem, 4vw, 1.5rem);
+    opacity: 0.8;
+    animation: slow-rotate 30000ms linear infinite alternate forwards;
+
+    &:nth-child(even) {
+        animation-direction: alternate-reverse;
+    }
+}
+@keyframes slow-rotate {
+    0% {
+        transform: rotate(0deg) translate(0);
+    }
+    33% {
+        transform: rotate(0deg) translate(10px, 5px);
+    }
+    66% {
+        transform: rotate(360deg) translate(-5px, 10px);
+    }
+    100% {
+        transform: rotate(0deg) translate(0);
+    }
+}
+
+.wavy-bg {
+    position: relative;
+    &::before {
+        @include theme {
+            opacity: themed($wavy-lines-opacity);
+        }
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url(./assets/images/wavy-lines-dark.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        height: Max(1000px, 120%);
+    }
+}
+.notification.unread {
+    position: relative;
+}
+.notification.unread::after {
+    content: attr(data-unread-count);
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -30%);
+    opacity: 0.8;
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .App {
+        padding-top: 45px;
+    }
+    .wavy-bg {
+        &::before {
+            height: 120%;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.dashboard-index {
+    position: relative;
+    padding-block: 2rem;
+
+    .main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 2rem;
+        margin-right: calc(240px + 2rem);
+
+        article {
+            @include theme {
+                background-color: themed($dashboard-elevated-bg);
+            }
+            font-size: 0.9rem;
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+
+            h2 {
+                @include small-heading;
+                font-size: clamp(1.2em, 3vw, 1.3em);
+            }
+        }
+        article:last-child {
+            @include theme {
+                background-color: transparent;
+            }
+            align-content: center;
+
+            ul {
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    .referral {
+        @include styledInput;
+        @include theme {
+            background-color: themed($dashboard-elevated-bg);
+        }
+        margin-right: calc(240px + 2rem);
+        padding: 1rem;
+        margin-top: 2rem;
+        display: grid;
+        gap: 1rem;
+        border-radius: 10px;
+
+        h2 {
+            @include small-heading;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+        }
+        .input-wrapper {
+            label {
+                @include theme {
+                    background-color: themed($dashboard-elevated-bg);
+                }
+            }
+            .button-wrapper {
+                position: absolute;
+                top: 0;
+                right: 0.4rem;
+                bottom: 0;
+                display: grid;
+            }
+            .copy-link {
+                @include button-outline;
+                @include theme {
+                    color: #2bcd3e;
+                    outline-color: #2bcd3e;
+                }
+                margin: auto;
+                padding-block: 0.7rem;
+                border-radius: 8px;
+            }
+        }
+    }
+    .copyright {
+        margin-top: 1rem;
+    }
+
+    .friends-roommates-wrapper {
+        @include theme {
+            background-color: themed($background-color);
+        }
+        position: absolute;
+        inset: 0;
+        left: initial;
+        display: grid;
+        gap: 2rem;
+        flex-grow: 3;
+        flex-shrink: 1;
+        align-content: start;
+        width: 240px;
+        padding-top: 2rem;
+
+        h2 {
+            @include small-heading;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+        }
+
+        .friends-list,
+        .roommates-list {
+            display: grid;
+            gap: 1rem;
+            min-height: 0;
+            overflow-y: auto;
+            max-height: 230px;
+        }
+        .roommates-list {
+            max-height: 100px;
+        }
+        .give-a-review {
+            @include styledInput;
+            display: grid;
+            gap: 1rem;
+
+            .input-wrapper {
+                textarea {
+                    height: 7rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .dashboard-index {
+        flex-direction: column;
+        .main {
+            margin-right: 0;
+        }
+        .referral {
+            margin-right: 0;
+        }
+        .friends-roommates-wrapper {
+            position: static;
+            width: auto;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+@import "assets/styles/mixins";
+
+.our-achievements {
+    padding: 0 $screen-content-padding;
+    margin-bottom: 4rem;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .achievement-chart {
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2rem;
+        padding-top: 2rem;
+        padding-inline: 4rem;
+    }
+    .achievement {
+        position: relative;
+        width: clamp(100px, 30vw, 300px);
+        margin: auto;
+        padding-left: 10px;
+        &::before {
+            @include theme {
+                background-color: themed($background-color-2);
+            }
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 3px;
+        }
+        &::after {
+            @include theme {
+                background-color: themed($secondary-color);
+            }
+            content: "";
+            position: absolute;
+            top: 60%;
+            bottom: 0;
+            left: 0;
+            width: 3px;
+            border-radius: 3px;
+        }
+        .number {
+            @include slide-in;
+            font-size: clamp(29px, 6vw, 64px);
+            line-height: 130%;
+        }
+        .info {
+            text-transform: capitalize;
+            opacity: 0.6;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .our-achievements {
+        .achievement-chart {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            padding-inline: 2rem;
+        }
+    }
+}
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .our-achievements {
+        .achievement-chart {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            column-gap: 1rem;
+            padding-inline: 0;
+        }
+    }
+}

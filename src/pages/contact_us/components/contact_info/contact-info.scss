@@ -1,0 +1,64 @@
+@import "assets/styles/mixins";
+
+.contact-info {
+    padding: 0 $screen-content-padding;
+    margin-block: 4rem;
+    .heading {
+        @include slide-in;
+        @include heading;
+    }
+    .direct-lines {
+        @include slide-in;
+        margin-top: 2rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        > * {
+            @include small-heading;
+        }
+    }
+}
+
+.contact-wrapper .social-media-links {
+    margin-block: 4rem;
+    padding: 0 $screen-content-padding;
+    .heading {
+        @include slide-in;
+        @include heading;
+    }
+    .links {
+        @include generic-social-icon;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 2rem;
+
+        .facebook {
+            @include slide-in();
+            background-image: url(../../../../assets/images/facebook-logo.svg);
+        }
+        .instagram {
+            @include slide-in($delay: 0.5);
+            background-image: url(../../../../assets/images/Instagram-logo.svg);
+        }
+        .twitter {
+            @include slide-in($delay: 1);
+            background-image: url(../../../../assets/images/Twitter-logo.svg);
+        }
+        .whatsapp {
+            @include slide-in($delay: 1.5);
+            background-image: url(../../../../assets/images/whatsapp-logo.svg);
+        }
+        > li {
+            $icon-size: clamp(2rem, 8vw, 3rem);
+            list-style: none;
+            width: $icon-size;
+            background-size: $icon-size;
+            background-position: center;
+            background-repeat: no-repeat;
+            aspect-ratio: 1/1;
+        }
+    }
+}

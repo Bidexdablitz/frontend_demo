@@ -1,0 +1,187 @@
+@import "../../assets/styles/variable";
+@import "../../assets/styles/buttons";
+@import "../../assets/styles/mixins";
+
+.header {
+    @include theme() {
+        color: themed($header-text);
+        background-color: themed($header-background);
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    padding-block: 0.5rem;
+    padding-inline: $screen-content-padding;
+    box-shadow: $default-box-shadow;
+    align-items: center;
+    z-index: $header-z-index;
+    max-width: $highest-breakpoint;
+    margin-inline: auto;
+    transition: background-color $default-transition-duration ease-in-out;
+
+    .company-logo {
+        width: clamp(45px, 7vw, 50px);
+        aspect-ratio: 1/0.625;
+    }
+    .hamburger-menu {
+        display: none;
+        height: 28.8px;
+        aspect-ratio: 1 / 1;
+        @include slide-in($delay: 1.5, $distance: 0.5rem);
+
+        .bar {
+            @include theme {
+                background-color: themed($hamburger-bars);
+            }
+            height: 3px;
+            width: 80%;
+            margin: auto;
+            border-radius: 3px;
+            transition: transform $default-transition-duration ease-in-out;
+            z-index: $hamburger-menu-z-index;
+        }
+    }
+    &.open-nav .hamburger-menu .bar {
+        &:first-child {
+            transform: translateY(9.5px) rotate(45deg);
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:last-child {
+            transform: translateY(-9.5px) rotate(-45deg);
+        }
+    }
+    &.page-top {
+        @include theme {
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+}
+
+.main-navigation {
+    overflow-x: auto;
+    overflow-y: hidden;
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: clamp(0.5rem, 3.5vw, 3rem);
+        text-transform: capitalize;
+
+        > * {
+            @include slide-in("right");
+            white-space: nowrap;
+            font-size: 0.95rem;
+
+            > * {
+                color: inherit;
+                text-decoration: none;
+            }
+            > *.active:not(.sign-up) {
+                @include theme {
+                    color: themed($primary-color);
+                }
+                cursor: pointer;
+                position: relative;
+                font-family: $font-family-medium;
+                font-weight: $font-weight-medium;
+            }
+            > *.active:not(.sign-up)::before {
+                $selector-width: 60%;
+                content: "";
+                position: absolute;
+                bottom: -55%;
+                left: calc((100% - #{$selector-width}) / 2);
+                width: $selector-width;
+                height: 3px;
+                border-radius: 3px;
+                @include theme {
+                    background-color: themed($primary-color);
+                }
+            }
+            > *:hover:not(.active) {
+                cursor: pointer;
+                opacity: 0.8;
+            }
+        }
+
+        .sign-in,
+        .log-out {
+            @include theme {
+                color: themed($primary-color);
+            }
+        }
+        .sign-up {
+            @include button-fill;
+            padding: 0.65em 2.5em;
+        }
+        .theme-toggle {
+            @include button-fill;
+            @include theme {
+                background-color: themed($theme-toggle-background);
+            }
+            @include slide-in($delay: 1.5, $distance: 0.5rem);
+            position: relative;
+            height: 50px;
+            aspect-ratio: 1/1;
+            border-width: 0;
+            border-radius: 0 30px 30px;
+            padding: 0;
+            &:after {
+                @include theme {
+                    background-image: themed($theme-toggle-icon);
+                }
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 50%;
+                z-index: 20;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        gap: 0;
+        overflow-y: auto;
+        padding-block: 0.5rem;
+        .hamburger-menu {
+            display: grid;
+        }
+    }
+    .main-navigation ul {
+        @include theme {
+            background-color: themed($header-background);
+        }
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        gap: 2rem;
+        overflow: auto;
+        width: Min(100%, 250px);
+        padding: 3.5rem 1rem 1rem;
+        box-shadow: $default-box-shadow;
+        transform: translateX(110%);
+        transition: transform $default-transition-duration ease-in-out;
+
+        .theme-toggle {
+            min-height: 50px;
+            border-radius: 30px;
+            margin: auto 0 1rem auto;
+        }
+    }
+    .open-nav ul {
+        transform: translateX(0);
+    }
+}

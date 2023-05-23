@@ -1,0 +1,50 @@
+@import "./variable";
+
+@mixin button {
+    display: inline-block;
+    font-family: $font-family-medium;
+    font-weight: $font-weight-medium;
+    text-transform: capitalize;
+    padding: Max(1rem, 0.65em) 2.5em;
+    border-width: 0;
+    border-radius: $button-radius;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 1;
+        filter: brightness(90%);
+    }
+    &:active {
+        filter: brightness(120%);
+    }
+    &:focus-visible {
+        @include theme {
+            outline: 2px solid themed($on-background-color);
+        }
+    }
+    &.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-fill($background-color: $primary-color, $text-color: $on-primary-color) {
+    @include button;
+    @include theme {
+        color: themed($text-color);
+        background-color: themed($background-color);
+    }
+}
+@mixin button-outline($border-color: $primary-color, $text-color: $primary-color) {
+    @include button;
+    $border-thickness: 1.5px;
+    background: transparent;
+    @include theme {
+        color: themed($text-color);
+        outline: $border-thickness solid themed($border-color);
+    }
+    outline-offset: -$border-thickness;
+}

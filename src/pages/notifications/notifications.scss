@@ -1,0 +1,31 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.notifications {
+    height: calc(100vh - #{$header-height-desktop});
+
+    .go-back {
+        @include button-fill;
+        @include theme {
+            background-image: themed($back-arrow);
+            background-color: transparent;
+        }
+        border-radius: 0;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        background-position-y: center;
+        width: 100%;
+        margin-inline: clamp(1rem, 6vw, 4rem);
+        padding: 2rem;
+        display: block;
+
+        &:hover {
+            background-size: 1.5rem;
+        }
+    }
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .notifications {
+        height: calc(100vh - #{$header-height-mobile});
+    }
+}

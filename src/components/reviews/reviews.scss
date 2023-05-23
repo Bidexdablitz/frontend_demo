@@ -1,0 +1,78 @@
+@import "assets/styles/variable";
+@import "assets/styles/mixins";
+
+.reviews {
+    padding: 0 $screen-content-padding 4rem;
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+    .slider-wrapper {
+        @include slide-in;
+    }
+    .review {
+        display: grid;
+        text-align: center;
+        width: calc(90% - 50px);
+        margin: auto;
+
+        .title {
+            font-family: $font-family-bold;
+            font-weight: $font-weight-bold;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .text {
+            font-style: italic;
+            max-width: 600px;
+            margin: auto;
+        }
+        .person {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            column-gap: 0.5rem;
+            text-align: start;
+            width: fit-content;
+            margin: 2rem auto 0;
+
+            .profile-pic {
+                width: 70px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                object-fit: cover;
+                grid-row: span 2;
+                margin: auto 0 auto auto;
+            }
+            .name {
+                font-family: $font-family-medium;
+                font-weight: $font-weight-medium;
+                margin: auto auto 0 0;
+            }
+            .about {
+                margin: 0.3rem auto auto 0;
+            }
+            .school {
+                font-family: $font-family-medium;
+                font-weight: $font-weight-medium;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .swiper {
+        min-height: 200px;
+        margin-top: 2rem;
+    }
+    .swiper-button-next {
+        @include swiper-button;
+        transform: translateX(8px);
+    }
+    .swiper-button-prev {
+        @include swiper-button;
+        transform: translateX(-8px);
+    }
+}

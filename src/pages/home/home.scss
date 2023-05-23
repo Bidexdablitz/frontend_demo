@@ -1,0 +1,10 @@
+@import "assets/styles/mixins";
+
+.top-tracker {
+    transform: translateY(-$header-height-desktop);
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .top-tracker {
+        transform: translateY(-$header-height-mobile);
+    }
+}

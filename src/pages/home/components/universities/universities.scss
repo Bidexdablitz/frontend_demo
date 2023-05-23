@@ -1,0 +1,46 @@
+@import "assets/styles/mixins";
+@import "assets/styles/variable";
+
+.universities {
+    padding: 4rem $screen-content-padding;
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .university-list {
+        @include slide-in;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1rem;
+        padding-block: 2rem;
+        overflow: hidden;
+    }
+    .university {
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-transform: capitalize;
+    }
+    .input-wrapper {
+        @include generic-input-wrapper;
+        @include slide-in;
+        display: grid;
+        max-width: 400px;
+        margin: 1rem auto;
+    }
+    .search {
+        @include generic-input();
+        background-size: 1rem;
+        @include theme {
+            background-image: themed($search-input-icon);
+        }
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .universities {
+        .university-list {
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        }
+    }
+}

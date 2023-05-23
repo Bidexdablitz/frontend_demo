@@ -1,0 +1,71 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.about-hero {
+    position: relative;
+    background-image: $default-background-image-gradient;
+    padding: 8rem $screen-content-padding;
+    color: #fff;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("../../../../assets/images/portrait-happy-young-women.jpg");
+        background-size: cover;
+        background-position: center;
+        z-index: $hero-image-z-index;
+    }
+
+    .heading {
+        @include slide-in();
+        font-family: $font-family-bold;
+        font-weight: $font-weight-bold;
+        font-size: clamp(29px, 6vw, 64px);
+        text-align: center;
+        margin: auto;
+        line-height: 110%;
+    }
+
+    .sub-heading {
+        @include slide-in($delay: 1);
+        margin: 1rem auto 1.5rem;
+        font-size: clamp(1rem, 2.5vw, 24px);
+        text-align: center;
+    }
+    .buttons {
+        @include slide-in($delay: 2);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 1.5rem;
+        row-gap: 1rem;
+        padding-top: 2rem;
+    }
+    .request-roommate {
+        @include button-fill;
+    }
+    .request-friend {
+        @include button-outline;
+    }
+    .request-roommate,
+    .request-friend {
+        padding-inline: 0;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        width: clamp(170px, 36vw, 264px);
+        min-height: 40px;
+    }
+}
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .about-hero {
+        .heading {
+            text-align: start;
+        }
+        .sub-heading {
+            text-align: start;
+        }
+        .buttons {
+            justify-content: left;
+        }
+    }
+}

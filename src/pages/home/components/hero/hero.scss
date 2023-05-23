@@ -1,0 +1,129 @@
+@import "assets/styles/variable";
+@import "assets/styles/buttons";
+@import "assets/styles/mixins";
+
+.hero {
+    padding-inline: $screen-content-padding;
+    padding-top: 4rem;
+    position: relative;
+    background-image: url("../../../../assets/images/dot-square-pattern.png");
+    background-position: $screen-content-padding 0;
+    background-size: clamp(140px, 33%, 270px);
+    background-repeat: no-repeat;
+    isolation: isolate;
+
+    &::before {
+        @include theme {
+            opacity: themed($wavy-lines-opacity);
+            background-image: themed($wavy-lines);
+        }
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: calc(100% + 200px);
+        background-repeat: no-repeat;
+        background-size: 100% clamp(400px, 100vw, 130%);
+        z-index: $wavy-lines-z-index;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        height: 160%;
+        width: 100%;
+        background: url("../../../../assets/images/hero-image.png");
+        background-size: clamp(300px, 60%, 730px);
+        background-repeat: no-repeat;
+        background-position: 100% 0;
+        z-index: $hero-image-z-index;
+    }
+    .heading {
+        @include slide-in("right");
+        width: clamp(200px, 70%, 740px);
+        font-family: $font-family-bold;
+        font-weight: $font-weight-bold;
+        font-size: clamp(29px, 6vw, 64px);
+        line-height: 110%;
+    }
+
+    .sub-heading {
+        @include slide-in("right", $delay: 1);
+        width: clamp(200px, 60%, 740px);
+        margin: 1rem 0 1.5rem 0;
+        font-size: clamp(1rem, 2.5vw, 24px);
+    }
+
+    .request-roommate {
+        @include button-fill;
+        @include slide-in($delay: 2);
+        margin-right: 1.5rem;
+    }
+    .request-friend {
+        @include button-outline;
+        @include slide-in($delay: 2);
+        margin-top: 1rem;
+    }
+    .request-roommate,
+    .request-friend {
+        padding-inline: 0;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        width: clamp(170px, 36vw, 264px);
+        min-height: 40px;
+    }
+    .social-media-links {
+        display: flex;
+        gap: clamp(1rem, 8vw, 5rem);
+        margin-block: 2rem;
+
+        .facebook {
+            @include slide-in($delay: 3);
+            background-image: url(../../../../assets/images/facebook-logo.svg);
+        }
+        .instagram {
+            @include slide-in($delay: 3.5);
+            background-image: url(../../../../assets/images/Instagram-logo.svg);
+        }
+        .twitter {
+            @include slide-in($delay: 4);
+            background-image: url(../../../../assets/images/Twitter-logo.svg);
+        }
+        .whatsapp {
+            @include slide-in($delay: 4.5);
+            background-image: url(../../../../assets/images/whatsapp-logo.svg);
+        }
+        > li {
+            @include generic-social-icon;
+            $icon-size: clamp(1.3rem, 4vw, 1.8rem);
+            list-style: none;
+            width: $icon-size;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .hero {
+        &::after {
+            background-position: 50% 100%;
+        }
+        .heading {
+            width: 100%;
+        }
+
+        .sub-heading {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: ($extra-small-breakpoint + 1)) and (max-width: $mobile-breakpoint) {
+    .hero {
+        &::after {
+            background-position: 110% 13%;
+        }
+    }
+}

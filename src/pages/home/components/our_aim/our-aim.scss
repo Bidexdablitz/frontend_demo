@@ -1,0 +1,89 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+@import "assets/styles/variable";
+
+.our-aim {
+    padding-top: 6rem;
+    padding-inline: $screen-content-padding;
+    .heading {
+        @include heading;
+        @include slide-in;
+        padding-top: 3rem;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+
+    .content {
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(1rem, 4vw, 2rem);
+        place-items: center;
+        grid-template-areas:
+            "one two"
+            "four three";
+
+        > *:nth-child(1) {
+            grid-area: one;
+        }
+        > *:nth-child(2) {
+            grid-area: two;
+        }
+        > *:nth-child(3) {
+            grid-area: three;
+        }
+        > *:nth-child(4) {
+            grid-area: four;
+        }
+        > div {
+            padding-inline: 1rem;
+        }
+        h3 {
+            @include slide-in;
+            @include heading;
+            text-align: start;
+            font-size: 1.3rem;
+        }
+        .write-up {
+            @include slide-in;
+            max-width: 400px;
+            padding-block: 1.5rem;
+        }
+        a {
+            @include slide-in;
+            @include button-fill;
+            padding-block: 0.8rem;
+        }
+        > img {
+            @include slide-in("right");
+            width: 100%;
+            max-width: 450px;
+            align-self: center;
+        }
+        > img:last-child {
+            @include slide-in("left");
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .our-aim {
+        overflow-x: auto;
+        padding-top: 4rem;
+        .content {
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "one"
+                "two"
+                "three"
+                "four";
+
+            > div {
+                padding-inline: 0;
+            }
+        }
+    }
+}

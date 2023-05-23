@@ -1,0 +1,39 @@
+@import "assets/styles/mixins.scss";
+
+.our-core-values,
+.sub-hero,
+.priority {
+    padding: 0 $screen-content-padding;
+    margin-bottom: 4rem;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+    .article-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        padding-top: 2rem;
+
+        article {
+            display: grid;
+            gap: 1rem;
+        }
+    }
+    .small-heading {
+        @include slide-in;
+        @include small-heading;
+    }
+    .write-up {
+        @include slide-in;
+        max-width: 270px;
+    }
+    img {
+        @include slide-in;
+    }
+}

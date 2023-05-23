@@ -1,0 +1,45 @@
+@import "assets/styles/mixins";
+
+.roommate-page,
+.friend-page {
+    padding: 2rem $screen-content-padding;
+
+    .heading {
+        @include heading;
+        @include theme {
+            color: themed($primary-color);
+        }
+        font-size: clamp(2rem, 5vw, 45px);
+    }
+    .sub-heading {
+        @include sub-heading;
+    }
+    .roommates,
+    .friends {
+        margin-top: 2rem;
+        display: grid;
+        gap: clamp(2rem, 6vw, 3rem);
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .no-more-items {
+        @include slide-in;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 2rem 0rem;
+        text-align: center;
+    }
+}
+
+.img-wrapper.loading {
+    @include loading-background;
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .roommate-page,
+    .friend-page {
+        .roommates,
+        .friends {
+            grid-template-columns: 1fr;
+        }
+    }
+}

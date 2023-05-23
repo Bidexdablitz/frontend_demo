@@ -1,0 +1,60 @@
+@import "../../assets/styles/variable";
+@import "../../assets/styles/themes";
+@import "../../assets/styles/buttons";
+@import "../../assets/styles/mixins";
+
+.how-to-get-a-roommate {
+    position: relative;
+    overflow-x: auto;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    padding: 5rem $screen-content-padding;
+    margin-block: 5rem;
+    background-image: $default-background-image-gradient;
+    background-size: cover;
+    background-position: center;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url(../../assets/images/group-happy-teenagers-taking-selfie.jpg);
+        background-size: cover;
+        background-position: center;
+        z-index: $hero-image-z-index;
+    }
+    .heading {
+        @include heading;
+        @include slide-in;
+        width: 100%;
+    }
+    .sub-heading {
+        @include slide-in;
+        @include sub-heading;
+        margin-top: 0.5rem;
+    }
+    > a {
+        @include button-outline;
+        @include slide-in;
+        text-decoration: none;
+        background-color: #fff;
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .how-to-get-a-roommate {
+        > a {
+            width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .how-to-get-a-roommate {
+        > a {
+            font-size: clamp(0.6rem, 3vw, 0.8rem);
+            white-space: initial;
+        }
+    }
+}

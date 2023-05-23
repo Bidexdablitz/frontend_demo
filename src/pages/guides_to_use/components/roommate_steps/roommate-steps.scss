@@ -1,0 +1,26 @@
+@import "assets/styles/mixins";
+
+.roommate-steps,
+.friend-steps {
+    margin-block: 4rem;
+    padding-inline: $screen-content-padding;
+
+    .heading {
+        @include heading;
+        @include slide-in;
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+        font-style: italic;
+        margin-bottom: 2rem;
+    }
+    ul {
+        display: grid;
+        gap: 0.5rem;
+        padding-left: 1rem;
+    }
+    li {
+        @include slide-in;
+    }
+}

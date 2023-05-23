@@ -1,0 +1,73 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/buttons";
+@import "../../assets/styles/variable";
+
+.our-aim {
+    padding-top: 6rem;
+    padding-inline: $screen-content-padding;
+    .heading {
+        padding-top: 3rem;
+        @include heading;
+    }
+    .sub-heading {
+        @include sub-heading;
+    }
+
+    .content {
+        padding-top: 4rem;
+        display: grid;
+        gap: clamp(1rem, 4vw, 2rem);
+        place-items: center;
+        grid-template-areas:
+            "one two"
+            "four three";
+
+        > *:nth-child(1) {
+            grid-area: one;
+        }
+        > *:nth-child(2) {
+            grid-area: two;
+        }
+        > *:nth-child(3) {
+            grid-area: three;
+        }
+        > *:nth-child(4) {
+            grid-area: four;
+        }
+        > div {
+            padding-inline: 1rem;
+        }
+        h3 {
+            @include heading;
+            text-align: start;
+            font-size: 1.3rem;
+        }
+        .write-up {
+            max-width: 400px;
+            padding-block: 1.5rem;
+        }
+        button {
+            @include button-fill;
+            padding-block: 0.8rem;
+        }
+        > img {
+            width: 100%;
+            max-width: 450px;
+            align-self: center;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .our-aim {
+        padding-top: 4rem;
+        .content {
+            gap: 1.5rem;
+            grid-template-areas:
+                "one"
+                "two"
+                "three"
+                "four";
+        }
+    }
+}

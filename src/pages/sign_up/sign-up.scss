@@ -1,0 +1,190 @@
+@import "assets/styles/mixins";
+@import "assets/styles/themes";
+@import "assets/styles/buttons";
+
+.sign-up-page-wrapper,
+.sign-in-page-wrapper {
+    @include headerless-margin;
+    display: flex;
+    min-height: 100vh;
+
+    .img,
+    .inner {
+        width: clamp(300px, 44vw, 550px);
+        background-size: cover;
+        background-position: center;
+
+        @media only screen and (max-width: $mobile-breakpoint) {
+            & {
+                display: none;
+            }
+        }
+    }
+    .inner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+}
+.sign-in-page-wrapper .img .inner {
+    background-image: url(../../assets/images/close-up-shot-touched-pleased-happy-dark-skinned-girl-with-afro-hairstyle-glasses-striped-blouse-holding-hands-chest-smiling-broadly-being-pleased-receiving-compliments.jpg);
+}
+.sign-up-page-wrapper .img .inner {
+    background-image: url(../../assets/images/portrait-content-beautiful-african-american-female-model-smiles-joyfully-keeps-hands-together-glad-recieve-congratulations.jpg);
+}
+.sign-up-page,
+.sign-in-page {
+    @include theme {
+        background-color: themed($background-color);
+    }
+    @include styledInput;
+    padding: 4rem $screen-content-padding;
+    min-height: 100vh;
+    width: Min(550px, 100%);
+    margin: auto;
+
+    .heading {
+        @include heading;
+        @include theme {
+            color: themed($primary-color);
+        }
+        @include slide-in;
+        font-size: clamp(2rem, 5vw, 45px);
+    }
+    .sub-heading {
+        @include sub-heading;
+        text-transform: capitalize;
+        @include slide-in;
+    }
+    .form-inputs {
+        display: grid;
+        gap: 2rem;
+        margin-block: 2rem;
+    }
+
+    .remember-me {
+        @include slide-in;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        width: fit-content;
+        margin-bottom: 2rem;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            position: relative;
+            width: 0;
+            height: 0;
+
+            &::before {
+                @include theme {
+                    border: 0.5px solid themed($input-border);
+                }
+                content: "";
+                width: 1rem;
+                display: inline-block;
+                aspect-ratio: 1/1;
+                border-radius: 2px;
+                transform: translateY(-50%);
+            }
+            &:checked::after {
+                @include theme {
+                    border: solid themed($input-border);
+                    border-width: 0 0.5px 0.5px 0;
+                }
+                content: "";
+                position: absolute;
+                top: 0;
+                transform: translate(0.3rem, -0.4rem) rotate(45deg);
+                width: 0.4rem;
+                aspect-ratio: 1/1.4;
+            }
+        }
+    }
+
+    button[type="submit"],
+    button.submit {
+        @include button-fill;
+        @include slide-in;
+        display: block;
+        margin-bottom: 1rem;
+        width: 200px;
+    }
+
+    .switch-page a,
+    .forgot-password {
+        @include slide-in;
+        @include theme {
+            color: themed($primary-color);
+        }
+        text-decoration: none;
+        text-transform: capitalize;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .google-authentication {
+        @include button-fill;
+        @include theme {
+            color: themed($on-background-color-2);
+            background-color: themed($background-color-2);
+        }
+        @include slide-in;
+        font-family: $font-family-regular;
+        font-weight: $font-weight-regular;
+        text-transform: capitalize;
+        border-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        border-radius: 10px;
+        padding: 0.9rem;
+        margin-block: 2rem;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            aspect-ratio: 1/1;
+            background-image: url(../../assets/images/icons/google-logo.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+    .switch-page {
+        @include slide-in;
+    }
+}
+
+.sign-in-page {
+    .forgot-password-wrapper {
+        display: flex;
+        column-gap: 2rem;
+        row-gap: 1rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+    .remember-me {
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .sign-up-page,
+    .sign-in-page {
+        width: Min(440px, 100%);
+
+        button[type="submit"],
+        button.submit {
+            margin-inline: auto;
+            width: auto;
+        }
+        .switch-page {
+            text-align: center;
+        }
+    }
+}

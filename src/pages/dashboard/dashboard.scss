@@ -1,0 +1,17 @@
+@import "assets/styles/mixins";
+
+.dashboard {
+    @include headerless-margin;
+    min-height: 100vh;
+
+    .main-section {
+        margin-left: clamp(5rem, 18vw, 300px);
+        padding-inline: $screen-content-padding;
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .dashboard {
+        margin-top: 0;
+    }
+}

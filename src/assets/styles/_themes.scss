@@ -1,0 +1,223 @@
+// website themeing mechanism
+$background-color: "background-color";
+$background-color-2: "background-color-2";
+$on-background-color: "on-background-color";
+$on-background-color-2: "on-background-color-2";
+$primary-color: "primary-color";
+$on-primary-color: "on-primary-color";
+$secondary-color: "secondary-color";
+$on-secondary-color: "on-secondary-color";
+$header-background: "header-background";
+$header-text: "header-text";
+$hamburger-bars: "hamburger-bars";
+$wavy-lines: "wavy-lines";
+$wavy-lines-opacity: "wavy-lines-opacity";
+$theme-toggle-background: "theme-toggle-background";
+$theme-toggle-icon: "theme-toggle-icon";
+$footer-background: "footer-background";
+$footer-text: "footer-text";
+$contact-form-background: "contact-form-background";
+$contact-form-input-background: "contact-form-input-background";
+$contact-form-text-color: "contact-form-text-color";
+$input-placeholder-color: "input-placeholder-color";
+$search-input-icon: "search-input-icon";
+$google-button-background: "google-button-background";
+$page-indicator: "page-indicator";
+$white: "white";
+$error: "error";
+$input-border: "input-border";
+$upload-cancel-button: "upload-cancel-button";
+$upload-cancel-button-x: "upload-cancel-button-x";
+$dashboard-icon: "dashboard-icon";
+$profile-icon: "profile-icon";
+$downlines-icon: "downlines-icon";
+$dashboard-elevated-bg: "dashboard-elevated-bg";
+$notification-icon: "notification-icon";
+$notification-icon-bg: "notification-icon-bg";
+$notification-ellipse-icon: "notification-ellipse-icon";
+$notification-variant-bg: "notification-variant-bg";
+$back-arrow: "back-arrow";
+$img-loading-gradient: "img-loading-gradient";
+
+// dark theme
+$dark-background-color: #202023;
+$dark-background-color-2: #35363a;
+$dark-on-background-color: #fff;
+$dark-on-background-color-2: #fff;
+$dark-primary-color: #fe5200;
+$dark-on-primary-color: #fff;
+$dark-secondary-color: #00a0e3;
+$dark-on-secondary-color: #fff;
+$dark-header-background: #35363a;
+$dark-header-text: #fff;
+$dark-hamburger-bars: #fff;
+$dark-wavy-lines: url("../images/wavy-lines-dark.png");
+$dark-wavy-lines-opacity: 0.5;
+$dark-theme-toggle-background: #fe5200;
+$dark-theme-toggle-icon: url("../images/light-mode.png");
+$dark-footer-background: #002f43;
+$dark-footer-text: #fff;
+$dark-contact-form-background: #333333;
+$dark-contact-form-input-background: #4f4f4f;
+$dark-contact-form-text-color: #e0e0e0;
+$dark-input-placeholder-color: #fff;
+$dark-search-input-icon: url(../images/icons/search-icon.png);
+$dark-google-button-background: #ffeee6;
+$dark-error: #c61010;
+$dark-page-indicator: #e0e0e0;
+$dark-input-border: #828282;
+$dark-upload-cancel-button: #c61010;
+$dark-upload-cancel-button-x: #fff;
+$dark-dashboard-icon: url(../images/icons/dashboard-icon-light.svg);
+$dark-profile-icon: url(../images/icons/profile-icon-light.svg);
+$dark-downlines-icon: url(../images/icons/downlines-icon-light.svg);
+$dark-dashboard-elevated-bg: #333333;
+$dark-notification-icon: url(../images/icons/notification-icon-light.svg);
+$dark-notification-icon-bg: #303034;
+$dark-notification-ellipse-icon: url(../images/icons/ellipse-icon-light.svg);
+$dark-notification-variant-bg: rgba(13, 13, 13, 0.3);
+$dark-back-arrow: url(../images/icons/back-arrow-icon.svg);
+$dark-img-loading-gradient: #333333;
+
+// light theme
+$light-background-color: #f2f2f2;
+$light-background-color-2: #ffeee6;
+$light-on-background-color: #000;
+$light-on-background-color-2: #000;
+$light-primary-color: #fe5200;
+$light-on-primary-color: #fff;
+$light-secondary-color: #00a0e3;
+$light-on-secondary-color: #fff;
+$light-header-background: #ffeee6;
+$light-header-text: #000;
+$light-hamburger-bars: #000;
+$light-wavy-lines: url(../images/wavy-lines.png);
+$light-wavy-lines-opacity: 1;
+$light-theme-toggle-background: #000;
+$light-theme-toggle-icon: url(../images/dark-mode.png);
+$light-footer-background: #002f43;
+$light-footer-text: #fff;
+$light-contact-form-background: #ffeee6;
+$light-contact-form-input-background: #f9e7e7;
+$light-contact-form-text-color: #333333;
+$light-input-placeholder-color: #4f4f4f;
+$light-search-input-icon: url(../images/icons/search-icon-dark.png);
+$light-google-button-background: #ffeee6;
+$light-error: #c61010;
+$light-page-indicator: #828282;
+$light-input-border: #828282;
+$light-upload-cancel-button: #f6dbdb;
+$light-upload-cancel-button-x: #c61010;
+$light-dashboard-icon: url(../images/icons/dashboard-icon-dark.svg);
+$light-profile-icon: url(../images/icons/profile-icon-dark.svg);
+$light-downlines-icon: url(../images/icons/downlines-icon-dark.svg);
+$light-dashboard-elevated-bg: #fff;
+$light-notification-icon: url(../images/icons/notification-icon-dark.svg);
+$light-notification-icon-bg: #fff;
+$light-notification-variant-bg: rgba(255, 255, 255, 0.3);
+$light-notification-ellipse-icon: url(../images/icons/ellipse-icon-dark.svg);
+$light-back-arrow: url(../images/icons/back-arrow-icon-dark.svg);
+$light-img-loading-gradient: #fafafa;
+
+$themes: (
+    "dark": (
+        $background-color: $dark-background-color,
+        $background-color-2: $dark-background-color-2,
+        $on-background-color: $dark-on-background-color,
+        $on-background-color-2: $dark-on-background-color-2,
+        $primary-color: $dark-primary-color,
+        $on-primary-color: $dark-on-primary-color,
+        $secondary-color: $dark-secondary-color,
+        $on-secondary-color: $dark-on-secondary-color,
+        $header-background: $dark-header-background,
+        $header-text: $dark-header-text,
+        $hamburger-bars: $dark-hamburger-bars,
+        $wavy-lines: $dark-wavy-lines,
+        $wavy-lines-opacity: $dark-wavy-lines-opacity,
+        $theme-toggle-background: $dark-theme-toggle-background,
+        $theme-toggle-icon: $dark-theme-toggle-icon,
+        $footer-background: $dark-footer-background,
+        $footer-text: $dark-footer-text,
+        $contact-form-background: $dark-contact-form-background,
+        $contact-form-input-background: $dark-contact-form-input-background,
+        $contact-form-text-color: $dark-contact-form-text-color,
+        $input-placeholder-color: $dark-input-placeholder-color,
+        $search-input-icon: $dark-search-input-icon,
+        $google-button-background: $dark-google-button-background,
+        $white: #fff,
+        $error: $dark-error,
+        $page-indicator: $dark-page-indicator,
+        $input-border: $dark-input-border,
+        $upload-cancel-button: $dark-upload-cancel-button,
+        $dashboard-icon: $dark-dashboard-icon,
+        $profile-icon: $dark-profile-icon,
+        $downlines-icon: $dark-downlines-icon,
+        $dashboard-elevated-bg: $dark-dashboard-elevated-bg,
+        $notification-icon: $dark-notification-icon,
+        $notification-icon-bg: $dark-notification-icon-bg,
+        $notification-ellipse-icon: $dark-notification-ellipse-icon,
+        $notification-variant-bg: $dark-notification-variant-bg,
+        $back-arrow: $dark-back-arrow,
+        $img-loading-gradient: $dark-img-loading-gradient,
+    ),
+    "light": (
+        $background-color: $light-background-color,
+        $background-color-2: $light-background-color-2,
+        $on-background-color: $light-on-background-color,
+        $on-background-color-2: $light-on-background-color-2,
+        $primary-color: $light-primary-color,
+        $on-primary-color: $light-on-primary-color,
+        $secondary-color: $light-secondary-color,
+        $on-secondary-color: $light-on-secondary-color,
+        $header-background: $light-header-background,
+        $header-text: $light-header-text,
+        $hamburger-bars: $light-hamburger-bars,
+        $wavy-lines: $light-wavy-lines,
+        $wavy-lines-opacity: $light-wavy-lines-opacity,
+        $theme-toggle-background: $light-theme-toggle-background,
+        $theme-toggle-icon: $light-theme-toggle-icon,
+        $footer-background: $light-footer-background,
+        $footer-text: $light-footer-text,
+        $contact-form-background: $light-contact-form-background,
+        $contact-form-input-background: $light-contact-form-input-background,
+        $contact-form-text-color: $light-contact-form-text-color,
+        $input-placeholder-color: $light-input-placeholder-color,
+        $search-input-icon: $light-search-input-icon,
+        $google-button-background: $light-google-button-background,
+        $white: #fff,
+        $error: $dark-error,
+        $page-indicator: $light-page-indicator,
+        $input-border: $light-input-border,
+        $upload-cancel-button: $light-upload-cancel-button,
+        $dashboard-icon: $light-dashboard-icon,
+        $profile-icon: $light-profile-icon,
+        $downlines-icon: $light-downlines-icon,
+        $dashboard-elevated-bg: $light-dashboard-elevated-bg,
+        $notification-icon: $light-notification-icon,
+        $notification-icon-bg: $light-notification-icon-bg,
+        $notification-ellipse-icon: $light-notification-ellipse-icon,
+        $notification-variant-bg: $light-notification-variant-bg,
+        $back-arrow: $light-back-arrow,
+        $img-loading-gradient: $light-img-loading-gradient,
+    ),
+);
+
+@mixin theme($root: false) {
+    @each $theme-name, $theme-value in $themes {
+        @if $root {
+            &.#{$theme-name}-theme {
+                $theme-map: $theme-value !global;
+                @content;
+            }
+        } @else {
+            .#{$theme-name}-theme & {
+                $theme-map: $theme-value !global;
+                @content;
+            }
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}

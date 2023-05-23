@@ -1,0 +1,6 @@
+.guides-hero {
+    &::after {
+        background-image: url(../../../../assets/images/guides-hero-image.png);
+        background-size: clamp(250px, 50%, 600px);
+    }
+}

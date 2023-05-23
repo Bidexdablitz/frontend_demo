@@ -1,0 +1,134 @@
+@import "../../assets/styles/variable";
+@import "../../assets/styles/themes";
+@import "../../assets/styles/mixins";
+
+footer {
+    @include theme {
+        color: themed($footer-text);
+        background-color: themed($footer-background);
+    }
+    overflow-x: hidden;
+
+    .footer-logo {
+        @include slide-in;
+        width: Max(180px, 60%);
+    }
+    > section {
+        @include theme {
+            border-bottom: 1px solid themed($footer-text);
+        }
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        padding: 2rem $screen-content-padding;
+
+        .heading {
+            @include small-heading;
+            @include slide-in;
+            position: relative;
+            font-size: 1.5rem;
+            text-align: start;
+            width: fit-content;
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+
+            &:after {
+                @include theme {
+                    background-color: themed($footer-text);
+                }
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40%;
+                height: 3px;
+                border-radius: 3px;
+            }
+        }
+
+        .contact {
+            .location {
+                &:before {
+                    background-image: url(../../assets/images/location-pin.svg);
+                }
+            }
+            .email {
+                &:before {
+                    background-image: url(../../assets/images/envelop.svg);
+                }
+            }
+        }
+        .social-media {
+            .twitter {
+                &:before {
+                    background-image: url(../../assets/images/twitter-white.svg);
+                }
+            }
+            .instagram {
+                &:before {
+                    background-image: url(../../assets/images/instagram-white.svg);
+                }
+            }
+            .facebook {
+                &:before {
+                    background-image: url(../../assets/images/facebook-white.svg);
+                }
+            }
+        }
+        .social-media,
+        .contact {
+            > *:not(.heading) {
+                @include theme {
+                    color: themed($footer-text);
+                }
+                @include slide-in;
+                text-decoration: none;
+                display: grid;
+                grid-template-columns: 1.5rem 1fr;
+                gap: 0.5rem;
+                align-items: center;
+                margin-block: 1rem;
+                width: fit-content;
+                text-transform: capitalize;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    height: 1.5rem;
+                    aspect-ratio: 1/1;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+            }
+        }
+        .language {
+            @include slide-in;
+            width: 150px;
+            height: 2.5rem;
+            padding: 1rem;
+            border: none;
+            background: $footer-text;
+            border-radius: 5px;
+            text-transform: capitalize;
+            margin-top: auto;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .copyright {
+        @include slide-in("right");
+        padding: 2rem $screen-content-padding;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    footer {
+        > section {
+            grid-template-columns: 1fr;
+        }
+    }
+}

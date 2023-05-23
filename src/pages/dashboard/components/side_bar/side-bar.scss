@@ -1,0 +1,98 @@
+@import "assets/styles/mixins";
+@import "assets/styles/buttons";
+
+.side-bar {
+    position: fixed;
+    inset: 0;
+    right: initial;
+    width: clamp(5rem, 18vw, 300px);
+    color: #fff;
+    background-color: #000;
+    display: grid;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem clamp(5px, 2vw, 1rem);
+    overflow-x: hidden;
+
+    .company-logo {
+        width: clamp(3rem, 7vw, 5rem);
+        margin-inline: auto;
+    }
+    .about-user {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        gap: 0.5rem;
+
+        .users-name {
+            text-transform: capitalize;
+            font-family: $font-family-bold;
+            font-weight: $font-weight-bold;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+        .user-pic {
+            width: clamp(2rem, 7vw, 5rem);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            margin-inline: auto;
+            margin-bottom: 0.5rem;
+            border: 1px solid;
+            border-radius: 50%;
+        }
+        .location {
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+        .roommates-count,
+        .friends-count {
+            width: clamp(2rem, 8vw, 4rem);
+            padding: 0.1rem 0.3rem;
+            border-radius: 1rem;
+            background-color: #828282;
+        }
+    }
+    .extra {
+        text-align: center;
+        h3 {
+            text-transform: capitalize;
+            font-family: $font-family-bold;
+            font-weight: $font-weight-bold;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+    }
+    .go-back,
+    .go-home {
+        @include button-fill;
+        @include theme {
+            background: transparent;
+        }
+        display: flex;
+        font-size: 1rem;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+        row-gap: 0.5rem;
+        justify-content: center;
+        padding: 0.5rem;
+
+        &::before {
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            background-image: url(../../../../assets/images/icons/back-arrow-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    .side-bar {
+        margin-top: 45px;
+
+        .company-logo {
+            display: none;
+        }
+    }
+}

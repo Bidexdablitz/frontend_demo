@@ -1,0 +1,96 @@
+@import "assets/styles/mixins";
+@import "assets/styles/themes";
+@import "assets/styles/buttons";
+
+.roommate-onboarding {
+    $page-indicator-width: clamp(3rem, 20vw, 300px);
+    @include headerless-margin;
+    @include styledInput;
+    display: grid;
+    grid-template-columns: $page-indicator-width 1fr;
+    place-items: center;
+    min-height: 100vh;
+
+    .page-indicator-wrapper {
+        @include theme {
+            border-right: 1px solid themed($page-indicator);
+        }
+        width: $page-indicator-width;
+        height: 100%;
+        display: grid;
+        position: fixed;
+        inset: 0;
+        right: initial;
+
+        .slide-in-wrapper {
+            margin: auto;
+        }
+    }
+
+    .main-section {
+        padding-inline: $screen-content-padding;
+        display: grid;
+        gap: 2rem;
+        margin: auto;
+        padding-block: 4rem;
+        grid-column: 2;
+        align-content: center;
+        align-items: center;
+
+        .page-indicator {
+            display: none;
+        }
+    }
+    .heading {
+        @include heading;
+        @include theme {
+            color: themed($primary-color);
+        }
+        @include slide-in;
+        font-size: clamp(2rem, 5vw, 45px);
+    }
+    .sub-heading {
+        @include sub-heading;
+        @include slide-in;
+    }
+    .navigation-buttons {
+        @include slide-in;
+        display: flex;
+        margin-top: 1rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .back {
+            @include button-outline;
+            @include theme {
+                outline: none;
+            }
+        }
+        .next {
+            @include button-fill;
+        }
+    }
+}
+.page-one,
+.page-two,
+.page-three {
+    display: grid;
+    gap: 1.5rem;
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+    .roommate-onboarding {
+        grid-template-columns: 1fr;
+        .page-indicator-wrapper {
+            display: none;
+        }
+        .main-section {
+            gap: 5rem;
+            grid-column: 1;
+
+            .page-indicator {
+                display: flex;
+                margin-block: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@import "assets/styles/mixins";
+
+.alert {
+    @include theme {
+        color: themed($on-primary-color);
+        background-color: themed($primary-color);
+    }
+    position: fixed;
+    top: 0.5rem;
+    right: 0.5rem;
+    max-width: 400px;
+    min-width: 300px;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: calc(#{$header-z-index} + 1);
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform $default-transition-duration cubic-bezier(0.61, -0.28, 0.36, 1.29);
+
+    &.show {
+        transform: scale(1);
+    }
+    .message {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.5rem;
+        align-items: center;
+
+        a {
+            @include theme {
+                color: themed($on-primary-color);
+            }
+        }
+    }
+    .message::before {
+        content: "";
+        display: inline-block;
+        top: 1rem;
+        left: 1rem;
+        width: 2rem;
+        height: 2rem;
+        background-image: url(../../assets/images/icons/notification-icon-light.svg);
+        background-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: $extra-small-breakpoint) {
+    .alert {
+        left: 0.5rem;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
