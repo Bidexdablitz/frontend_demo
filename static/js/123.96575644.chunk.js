@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_development=self.webpackChunkfrontend_development||[]).push([[123],{123:function(e,n,t){t.r(n);t(2791);var s=t(184);n.default=function(){return(0,s.jsx)("section",{className:"downlines"})}}}]);
+//# sourceMappingURL=123.96575644.chunk.js.map

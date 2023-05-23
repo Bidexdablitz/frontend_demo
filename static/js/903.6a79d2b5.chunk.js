@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_development=self.webpackChunkfrontend_development||[]).push([[903],{5903:function(n,e,t){t.r(e),t.d(e,{default:function(){return o}});t(2791);var a=t(7689),c=t(184);var o=function(){var n=(0,a.s0)();return(0,c.jsxs)("section",{className:"notification-detail",children:[(0,c.jsx)("button",{className:"go-back",onClick:function(){return n(-1)}}),"detail"]})}}}]);
+//# sourceMappingURL=903.6a79d2b5.chunk.js.map
