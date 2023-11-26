@@ -15,7 +15,7 @@ Welcome to the Frontend Demo Project! This project showcases a responsive and in
 
 ## Demo
 
-Check out the live demo of the project [here](https://Bidexdablitz.github.io/frontend_demo).
+Check out the live demo of the project [here](https://joetechster.github.io/frontend_demo/).
 
 ## Getting Started
 
